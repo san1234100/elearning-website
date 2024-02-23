@@ -8,23 +8,41 @@ const bookListEl = document.getElementById("bookList");
 
 
 export const displayVideo = () => {
+  videoListEl.innerHTML=''
+ try{
   const videoArr = JSON.parse(localStorage.getItem(videolocalStorageKey));
-  const fragment = document.createDocumentFragment();
-  [...videoArr].forEach((val) => fragment.append(getCourseCard(val)));
-  videoListEl.append(fragment);
+  const fragment1 = document.createDocumentFragment();
+  [...videoArr].forEach((val) => fragment1.append(getCourseCard(val)));
+  videoListEl.append(fragment1);
+ }catch(e){
+  alert("No Data Found")
+ }
 };
 export const displayPdf = () => {
+  pdfListEl.innerHTML=''
+  try{
   const videoArr = JSON.parse(localStorage.getItem(pdflocalStorageKey));
-  const fragment = document.createDocumentFragment();
-  [...videoArr].forEach((val) => fragment.append(getCourseCard(val)));
-  pdfListEl.append(fragment);
+  const fragment2 = document.createDocumentFragment();
+  [...videoArr].forEach((val) => fragment2.append(getCourseCard(val)));
+  pdfListEl.append(fragment2);
+}catch(e){
+  alert("No Data Found")
+ }
 };
 export const displayBook = () => {
+  bookListEl.innerHTML=''
+  try{
   const videoArr = JSON.parse(localStorage.getItem(booklocalStorageKey));
-  const fragment = document.createDocumentFragment();
-  [...videoArr].forEach((val) => fragment.append(getCourseCard(val)));
-  bookListEl.append(fragment);
+  const fragment3 = document.createDocumentFragment();
+  [...videoArr].forEach((val) => fragment3.append(getCourseCard(val)));
+  bookListEl.append(fragment3);
+}catch(e){
+  alert("No Data Found")
+ }
 };
+
+
+
 function getCourseCard(val) {
   const divEl = document.createElement("div");
   divEl.className = "bg-white w-60 p-2 rounded h-fit";
@@ -46,7 +64,18 @@ function getCourseCard(val) {
   const btnEl = document.createElement("button");
   btnEl.className =
     "px-4 py-1.5 text-white mt-3 w-full rounded bg-midBlue hover:bg-blue-600";
-  btnEl.textContent = "View";
+  if(val.courseType === 'video'){
+    const aEl = document.createElement("a");
+    aEl.href=val.url
+    aEl.target="_blank"
+    aEl.textContent = "View";
+    btnEl.append(aEl)
+  }else{
+    const aEl = document.createElement("a");
+    aEl.href="#"
+    aEl.textContent = "Download";
+    btnEl.append(aEl)
+  }
   div3El.append(h1El, authorEl, btnEl);
   divEl.append(div2El, div3El);
   return divEl;

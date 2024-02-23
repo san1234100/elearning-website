@@ -8,6 +8,9 @@ const pdfInputEl = document.querySelector("form #pdfInput");
 
 
 const videoListEl = document.getElementById("videoList");
+const pdfListEl = document.getElementById("pdfList");
+const bookListEl = document.getElementById("bookList");
+
 
 const handleCourseType = () =>{
     const courseType = courseTypeEl.value;
@@ -26,9 +29,9 @@ const handleCourseType = () =>{
 addCourseBtn.addEventListener("click", () => {
   formEl.classList.toggle("hidden");
 });
-document.addEventListener("click",()=>{
-  formEl.classList.add("hidden");
-})
+// document.addEventListener("click",()=>{
+//   formEl.classList.add("hidden");
+// })
 // handle add course button end -->
 courseTypeEl.addEventListener("change",handleCourseType)
 
@@ -48,5 +51,30 @@ formEl.addEventListener("submit",(e)=>{
    formEl.reset();
 })
 
-displayVideo();
+
+const optArr=[videoListEl,pdfListEl,bookListEl]
+const optionsEls=document.getElementById('options')
+const isactiveEl=document.getElementsByClassName('isactive')
+
+optionsEls.addEventListener("click",handleNavbar)
+
+function handleNavbar(e){
+  optArr.forEach(val => val.classList.add('hidden'))
+  if(e.target.tagName === 'LI'){
+    [...isactiveEl].forEach(val => val.classList.remove('active'));
+  e.target.classList.add('active')
+  if(e.target.textContent === 'Videos'){
+    videoListEl.classList.remove('hidden');
+    displayVideo();
+  }else if(e.target.textContent === 'Pdf'){
+    pdfListEl.classList.remove('hidden');
+    displayPdf();
+  } else if(e.target.textContent === 'Book'){
+    bookListEl.classList.remove('hidden');
+    displayBook();
+  }
+  }
+  
+}
+
 

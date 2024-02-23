@@ -59,3 +59,15 @@
   font-weight: 900;
   font-style: normal;
 }
+
+.courseList{
+  @apply grid grid-cols-4 gap-5 max-w-6xl mt-14 mx-auto px-10 py-4;
+}
+
+.active{
+  @apply text-yellow;
+}
+
+.hidden{
+  display: none;
+}

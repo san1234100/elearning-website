@@ -19,11 +19,11 @@
     <header class="bg-darkBlue py-5 px-10 flex justify-between items-center">
       <div class="text-white poppins-bold text-xl">DailyPractice</div>
       <div class="text-white flex space-x-5 poppins-medium">
-        <a href="#" class="hover:text-lightBlue cursor-pointer">Home</a>
-        <a href="#course-section" class="hover:text-lightBlue cursor-pointer"
+        <a href="#" class="hover:text-yellow cursor-pointer">Home</a>
+        <a href="#course-section" class="hover:text-yellow cursor-pointer"
           >Courses</a
         >
-        <a href="" class="hover:text-lightBlue cursor-pointer">About</a>
+        <a href="" class="hover:text-yellow cursor-pointer">About</a>
       </div>
     </header>
     <!-- hero page -->
@@ -34,15 +34,15 @@
             Welcome to our
             <span class="text-yellow">DailyPractice family!</span>
           </div>
-          <h1 class="text-4xl text-white mt-4 poppins-light">
+          <h1 class="text-4xl text-white mt-4 poppins-light mb-10" >
             Experience the joy of learning <br />
             anytime,anywhere.
           </h1>
-          <button
-            class="px-4 py-2 mt-5 bg-yellow hover:bg-[#f19c25] text-white poppins-medium rounded"
+          <a href="#course-section"
+            class="px-4 py-2 bg-yellow hover:bg-[#f19c25] text-white poppins-medium rounded"
           >
             View all courses
-          </button>
+        </a>
         </div>
         <div class="">
           <img
@@ -162,14 +162,14 @@
       </div>
     </section>
     <!-- course page -->
-    <section class="bg-darkBlue h-screen p-10" id="course-section">
+    <section class="bg-darkBlue h-fit p-10" id="course-section">
       <div class="flex items-center">
         <ul
           class="bg-midBlue flex-1 flex justify-around text-white mx-auto max-w-xl rounded p-3 text-lg poppins-semibold"
-        >
-          <li class="cursor-pointer hover:text-yellow">Videos</li>
-          <li class="cursor-pointer hover:text-yellow">Pdf</li>
-          <li class="cursor-pointer hover:text-yellow">Book</li>
+          id="options">
+          <li class="cursor-pointer hover:text-yellow isactive">Videos</li>
+          <li class="cursor-pointer hover:text-yellow isactive">Pdf</li>
+          <li class="cursor-pointer hover:text-yellow isactive">Book</li>
         </ul>
         <button
           class="px-4 py-2 rounded text-white bg-yellow hover:bg-[#f19c25]"
@@ -258,69 +258,12 @@
           Add course
         </button>
       </form>
-      <div
-        class="grid grid-cols-4 gap-5 max-w-6xl mt-14 mx-auto px-10 py-4"
-        id="videoList"
-      >
-        <div class="bg-white w-60 p-2 rounded h-fit">
-          <div class="w-48">
-            <img src="./assets/images/bg-hero.png" alt="" />
-          </div>
-          <div>
-            <h1 class="text-darkBlue poppins-medium">google pvt ltd</h1>
-            <div class="poppins-regular text-sm pt-1">vignesh</div>
-            <button
-              class="px-4 py-1.5 text-white mt-3 w-full rounded bg-midBlue hover:bg-blue-600"
-            >
-              View
-            </button>
-          </div>
-        </div>
-        <div class="bg-white w-60 p-2 rounded h-fit">
-          <div class="w-48">
-            <img src="./assets/images/bg-hero.png" alt="" />
-          </div>
-          <div>
-            <h1 class="text-darkBlue poppins-medium">google pvt ltd</h1>
-            <div class="poppins-regular text-sm pt-1">monish</div>
-            <button
-              class="px-4 py-1.5 text-white mt-3 w-full rounded bg-midBlue hover:bg-blue-600"
-            >
-              View
-            </button>
-          </div>
-        </div>
-        <div class="bg-white w-60 p-2 rounded h-fit">
-          <div class="w-48">
-            <img src="./assets/images/bg-hero.png" alt="" />
-          </div>
-          <div>
-            <h1 class="text-darkBlue poppins-medium">google pvt ltd</h1>
-            <div class="poppins-regular text-sm pt-1">shriram</div>
-            <button
-              class="px-4 py-1.5 text-white mt-3 w-full rounded bg-midBlue hover:bg-blue-600"
-            >
-              View
-            </button>
-          </div>
-        </div>
-        <div class="bg-white w-60 p-2 rounded h-fit">
-          <div class="w-48">
-            <img src="./assets/images/bg-hero.png" alt="" />
-          </div>
-          <div>
-            <h1 class="text-darkBlue poppins-medium">google pvt ltd</h1>
-            <div class="poppins-regular text-sm pt-1">vignesh</div>
-            <button
-              class="px-4 py-1.5 text-white mt-3 w-full rounded bg-midBlue hover:bg-blue-600"
-            >
-              View
-            </button>
-          </div>
-        </div>
+      <div>
+        <!-- videoList -->
+        <div class="courseList" id="videoList"></div>
+        <div id="pdfList" class="courseList hidden"></div>
+        <div id="bookList" class="courseList hidden"></div>
       </div>
-      <div id="pdfList"></div>
-      <div id="bookList"></div>
     </section>
     <script type="module" src="/assets/js/main.js"></script>
   </body>

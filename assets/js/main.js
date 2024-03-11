@@ -41,10 +41,13 @@ formEl.addEventListener("submit",(e)=>{
      const courseDetails = Object.fromEntries(formData);
     if(courseDetails.courseType === 'video'){
          storeVideo(courseDetails);
+         displayVideo();
     }else if(courseDetails.courseType === 'pdf'){
       storePdf(courseDetails);
+      displayPdf();
     }else if(courseDetails.courseType === 'book'){
       storeBook(courseDetails);
+      displayBook();
     }else{
       alert("Invalid Type")
     }
@@ -78,3 +81,4 @@ function handleNavbar(e){
 }
 
 
+displayVideo();
